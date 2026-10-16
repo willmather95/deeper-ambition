@@ -27,10 +27,10 @@ git clone https://github.com/willmather95/deeper-ambition.git
 ```
 
 ```bash
-cp -r deeper-ambition/skills/be-more-ambitious ~/.claude/skills/
+cp -r deeper-ambition/skills/* ~/.claude/skills/
 ```
 
-Codex: copy the same folder into `~/.codex/skills/`.
+Codex: copy the same folders into `~/.codex/skills/`. To take just one skill, copy only its folder.
 
 With the skills CLI:
 
@@ -42,11 +42,28 @@ npx skills add willmather95/deeper-ambition
 
 Say things like "be more ambitious with this", "am I thinking too small?" or "what would a top expert do here?" and paste your prompt. A full before-and-after lives in `skills/be-more-ambitious/references/worked-example.md`.
 
+## More skills in this repo
+
+These are the skills I use every day, cleaned up for anyone to run.
+
+| Skill | What it's for | Credit |
+|---|---|---|
+| `human-copy` | Finds and strips the patterns that make writing read as AI-generated, with a detect-only mode | Wikipedia's "Signs of AI writing" plus the studies listed in the file |
+| `reason` | Settles a judgment call with no clear metric by running blind judges over competing answers until they converge | Inspired by [Udit Goenka's autoresearch](https://github.com/uditgoenka/autoresearch) |
+| `predict` | Pre-mortem before you ship. Code gets a five-expert panel; plans get Gary Klein's "it already failed" exercise | [Udit Goenka](https://github.com/uditgoenka/autoresearch), [Gary Klein](https://hbr.org/2007/09/performing-a-project-premortem) |
+| `contract-first-delegation` | Hands an agent an outcome with clear scope, authority, a verifier and a stop condition, then lets it pick the route | - |
+| `autoresearch` | Sets a goal, a metric and a verify command, then iterates, keeping wins and reverting losses | [Karpathy](https://github.com/karpathy/autoresearch), [Udit Goenka](https://github.com/uditgoenka/autoresearch), [pi-autoresearch](https://github.com/davebcn87/pi-autoresearch) |
+
+`reason`, `predict` and `autoresearch` start helper agents, so run them in a tool that can do that, like Claude Code. `reason` and `predict` work as a pair.
+
 ## What's inside
 
 ```
-skills/be-more-ambitious/
-  SKILL.md                      the workflow, checklist and output format
-  references/worked-example.md  weekly ads report -> standing ad-health system
-  evals/routing.md              prompts that should and should not trigger it
+skills/
+  be-more-ambitious/          workflow, worked example, routing evals
+  human-copy/SKILL.md
+  reason/SKILL.md
+  predict/SKILL.md
+  contract-first-delegation/SKILL.md
+  autoresearch/SKILL.md
 ```
